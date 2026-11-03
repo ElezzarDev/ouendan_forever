@@ -12,6 +12,8 @@
 #define MAX_NOTES 5000
 #define APPROACH_TIME 1000 //this will likely be temporary as it will change at higher difficulties, therefore it will eventually be a variable in main set by the beatmap
 #define LINGER_TIME 0 //how many ms after targetTime the note will remain on screen
+#define VANISH_TIME 150 //how many ms the note will take to shrink and vanish before the X or 300, 100, or 50 spawn on screen 
+#define MESSAGE_LINGER 200 //how long the notes score or miss sprite will remain onscreen in ms
 #define HITBOX_RADIUS 20
 #define WINDOW_300 40 //time in ms
 #define WINDOW_100 80 //time in ms
@@ -25,10 +27,19 @@ typedef enum {
     HIT_300
 } HitResult;
 
+/*typedef enum {
+	CIRCLE,
+	SLIDER,
+	SPINNER
+} NoteType
+*/	
+	
+
 
 //note structure
 
 typedef struct {
+	//NoteType type;		
     u16 x;               // px screen coordinate X
     u16 y;               // px coordinate Y
     u64 targetTime;  	// note target timestamp in ms
